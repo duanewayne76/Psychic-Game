@@ -27,63 +27,95 @@
 
 
 // Array that lists the letters of the alphabet.
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-    'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
-//Variable for random computer choice
-var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-document.write(computerChoice);
-
-
-
-document.onkeypress = function (event) {
-
-//Variable for user's guess
-var userGuess = event.key;
-
-// Variable to capture user's guessed
-var userGuess = [];
-
-// Variables to hold the number of wins, losses, and ties. They start at 0.
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var wins = 0;
 var losses = 0;
-var guesses = 10;
 
-// When the user presses a key, it will run the following function...
+function guessingGame() {
+    var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
+    var userGuess = [];
+    var guessesOutput = document.getElementById("guesses");
+
+    var guessesLeft = 9
+    document.onkeypress = function (event) {
+        console.log(event)
+        userGuess.push(event.key);
+        console.log(guessesOutput.textContent)
+        guessesOutput.textContent = userGuess.join(", ")
+        if (guessesLeft = 0) {
+            //reset userGuesses, clean out html span, pick another computerchoice, reset guesses left, add losses
+            
+        }
+        
+
+        if (userGuess === computerChoice) {
+            wins++;
+        } else {
+            guessesLeft--;
+        }
+
+        if (guesses = 0) {
+            losses++
+        }
 
 
-if (userGuess === computerChoice) {
-    wins++;
-} else {
-    guesses--;
+        guessesLeft--;
+
+
+
+    }
 }
-
-if (guesses = 0) {
-    losses++
-}
-
-
-// Create variables that hold references to the places in the HTML where we want to display things.
-//var directionsText = document.getElementById("directions-text");
-//var userChoiceText = document.getElementById("userchoice-text");
-//var computerChoiceText = document.getElementById("computerchoice-text");
-//var winsText = document.getElementById("wins-text");
-//var lossesText = document.getElementById("losses-text");
-//var tiesText = document.getElementById("ties-text");
+window.addEventListener('load', guessingGame);
 
 
 
+    //document.onkeypress = function (event) {
+
+        //Variable for user's guess
+       // var userGuess = event.key;
+
+        // Variable to capture user's guessed
+       // var userGuess = [];
+
+        // Variables to hold the number of wins, losses, and ties. They start at 0.
+       // var wins = 0;
+       // var losses = 0;
+       // var guesses = 10;
+
+        // When the user presses a key, it will run the following function...
 
 
-// Display the user and computer guesses, and wins/losses/ties.
-//userChoiceText.textContent = "You chose: " + userGuess;
-//computerChoiceText.textContent = "The computer chose: " + computerGuess;
-//winsText.textContent = "wins: " + wins;
-//lossesText.textContent = "losses: " + losses;
-//tiesText.textContent = "ties: " + ties;
-//}
+       // if (userGuess === computerChoice) {
+       //     wins++;
+       // } else {
+       //     guesses--;
+       // }
 
-//document.getElementById('wins').innerHTML = "Wins: " + wins;
-//document.getElementById('losses').innerHTML = "losses: " + losses;
-//document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
-}
+       // if (guesses = 0) {
+       //     losses++
+       // }
+
+
+        // Create variables that hold references to the places in the HTML where we want to display things.
+        //var directionsText = document.getElementById("directions-text");
+        //var userChoiceText = document.getElementById("userchoice-text");
+        //var computerChoiceText = document.getElementById("computerchoice-text");
+        //var winsText = document.getElementById("wins-text");
+        //var lossesText = document.getElementById("losses-text");
+        //var tiesText = document.getElementById("ties-text");
+
+
+
+
+
+        // Display the user and computer guesses, and wins/losses/ties.
+        //userChoiceText.textContent = "You chose: " + userGuess;
+        //computerChoiceText.textContent = "The computer chose: " + computerGuess;
+        //winsText.textContent = "wins: " + wins;
+        //lossesText.textContent = "losses: " + losses;
+        //tiesText.textContent = "ties: " + ties;
+        //}
+
+        //document.getElementById('wins').innerHTML = "Wins: " + wins;
+        //document.getElementById('losses').innerHTML = "losses: " + losses;
+        //document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
