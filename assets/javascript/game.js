@@ -26,6 +26,9 @@
 //var userGuess = prompt("Guess what letter I'm thinking of...");
 
 
+//I AM STILL WORKING ON THIS ASSIGNMENT
+
+
 // Array that lists the letters of the alphabet.
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var wins = 0;
